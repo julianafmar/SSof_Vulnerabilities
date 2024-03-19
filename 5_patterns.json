@@ -1,0 +1,104 @@
+[
+    {
+        "vulnerability": "SQL Injection",
+        "sources": [
+            "get()",
+            "post()",
+            "put()",
+            "form",
+            "files",
+            "cookies"
+        ],
+        "sanitizers": [
+            "escape_string()"
+        ],
+        "sinks": [
+            "execute()",
+            "executemany()"
+        ],
+        "implicit": "yes"
+    },
+    {
+        "vulnerability": "Command Injection",
+        "sources": [
+            "get()",
+            "post()",
+            "put()",
+            "form",
+            "files",
+            "cookies"
+        ],
+        "sanitizers": [
+            "escape()"
+        ],
+        "sinks": [
+            "os.system()",
+            "os.popen()",
+            "exec()", 
+            "eval()",
+            "subprocess.call()",
+            "subprocess.Popen()"
+        ],
+        "implicit": "yes"
+    },
+    {
+        "vulnerability": "XSS",
+        "sources": [
+            "get()",
+            "post()",
+            "put()",
+            "form",
+            "files",
+            "cookies"
+        ],
+        "sanitizers": [
+            "escape()",
+            "escapejs()"
+        ],
+        "sinks": [
+            "replace()",
+            "render()",
+            "render_to_response()",
+            "render_to_string()",
+            "HttpResponse()"
+        ],
+        "implicit": "yes"
+    },
+    {
+        "vulnerability": "Path Traversal",
+        "sources": [
+            "get()",
+            "post()",
+            "put()",
+            "form",
+            "files",
+            "cookies"
+        ],
+        "sanitizers": [
+            "escape()"
+        ],
+        "sinks": [
+            "sendfile()",
+            "send_from_directory()",
+            "os.system()",
+            "os.popen()"
+        ],
+        "implicit": "yes"
+    },
+    {
+        "vulnerability": "File Inclusion",
+        "sources": [
+            "get()",
+            "post()",
+            "put()",
+            "form",
+            "files",
+            "cookies"
+        ],
+        "sanitizers": [],
+        "sinks": [
+            "__import__()"
+        ],
+        "implicit": "yes"
+    }
+]
